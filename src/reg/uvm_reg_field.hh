@@ -1,7 +1,7 @@
 #ifndef UVM_REG_FIELD
 #define UVM_REG_FIELD
 
-#include "uvm_object.hh"
+#include "base/uvm_object.hh"
 
 using uvm_reg_data_t = unsigned long long;
 

@@ -19,6 +19,7 @@ int main()
 
     if( reg.get() == expect_val) {
         printf("REG RESET CHECK PASSED\n");
+        return 0;
     } else {
         printf("REG RESET CHECK FAILED: reg value: %llx, expect value: %llx\n",
         reg.get(), expect_val);
