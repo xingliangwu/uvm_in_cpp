@@ -1,5 +1,5 @@
-#ifndef UVM_REG_FIELD
-#define UVM_REG_FIELD
+#ifndef UVM_REG_FIELD_HH
+#define UVM_REG_FIELD_HH
 
 #include "base/uvm_object.hh"
 
@@ -14,6 +14,7 @@ class uvm_reg_field : public uvm_object {
         int unsigned                            m_lsb;
         int unsigned                            m_size;
         //std::map<std::string, uvm_reg_data_t>   m_reset;
+        bool                                    m_has_reset;
         uvm_reg_data_t                          m_reset;
         static int unsigned                     m_max_size;
         uvm_reg *                               m_parent;
@@ -103,16 +104,9 @@ class uvm_reg_field : public uvm_object {
         // Write-once fields can be modified after
         // a "HARD" reset operation.
         //
-        virtual void reset() {m_value = m_reset;}
+        virtual void reset() {if(m_has_reset)m_value = m_reset;}
         friend class uvm_reg;
 
 };
-
-
-void uvm_reg_field::set(uvm_reg_data_t value) {
-    m_value = value;
-}
-
-int unsigned uvm_reg_field::m_max_size = 0;
 
 #endif // REGISTER

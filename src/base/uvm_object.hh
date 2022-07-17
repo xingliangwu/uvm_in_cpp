@@ -1,5 +1,5 @@
-#ifndef UVM_OBJECT
-#define UVM_OBJECT
+#ifndef UVM_OBJECT_HH
+#define UVM_OBJECT_HH
 
 #include "stdlib.h"
 #include <string>
@@ -753,5 +753,4 @@ class uvm_object {
   //local static uvm_object uvm_global_copy_map[uvm_object];
 };
 
-int uvm_object::m_inst_count = 0;
 #endif
